@@ -1,6 +1,16 @@
+<svelte:head>
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#ff6b6b" />
+</svelte:head>
+
 <script>
   export let data;
+  
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
 </script>
+
 
 <main>
   <slot />
